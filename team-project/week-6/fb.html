@@ -1,0 +1,16 @@
+<script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script>
+    $(function() {
+        var myFirebaseRef = new Firebase("https://brilliant-fire-738.firebaseio.com/");
+        myFirebaseRef.child("todos").on("child_added", function(snapshot) {
+        $('#omg').html("added: " + snapshot.val().name);
+            console.log(snapshot.val());  // Alerts "San Francisco"
+        });
+    });
+</script>
+
+
+<div id="omg">
+</div>
